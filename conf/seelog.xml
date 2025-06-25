@@ -1,0 +1,8 @@
+<seelog>
+    <outputs formatid="common">
+        <rollingfile type="size" filename="./log/log.log" maxsize="10485760" maxrolls="5" />
+    </outputs>
+    <formats>
+        <format id="common" format="%Date %Time %EscM(46)[%LEV]%EscM(49)%EscM(0) [%File:%Line] [%Func] %Msg%n" />
+    </formats>
+</seelog>

@@ -1,0 +1,46 @@
+# 集群基础配置
+cluster.name: test
+node.name: node1
+node.master: true
+node.data: true
+
+# 数据和日志配置
+path.data: /data/esdata
+path.logs: /var/log/es
+
+# 启动配置和压缩
+network.host: 0.0.0.0
+http.port: 9200
+transport.port: 9300
+transport.tcp.compress: true
+
+# 集群内部的服务发现
+discovery.seed_hosts: ["192.168.1.1:9300", "10.12.23.42:9300"]
+cluster.initial_master_nodes: ["master", "node1"]
+
+# 设置集群恢复
+discovery.zen.minimum_master_nodes: 2
+gateway.recover_after_nodes: 2
+gateway.recover_after_time: 5m
+gateway.expected_nodes: 2
+
+search.max_buckets: 1000000
+indices.query.bool.max_clause_count: 10240
+cluster.routing.allocation.same_shard.host: true
+
+# 这个锁可以提高性能
+bootstrap.memory_lock: true
+
+# 跨域设置
+http.cors.enabled: true
+http.cors.allow-origin: "*"
+
+# 最大请求体限制
+http.max_content_length: 100mb
+
+# 集群安全设置
+xpack.security.enabled: true
+xpack.security.transport.ssl.enabled: true
+xpack.security.transport.ssl.verification_mode: certificate
+xpack.security.transport.ssl.keystore.path: certs/elastic-certificates.p12
+xpack.security.transport.ssl.truststore.path: certs/elastic-certificates.p12

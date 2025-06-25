@@ -1,0 +1,11 @@
+[Unit]
+Description=es
+[Service]
+LimitNOFILE=100000
+LimitNPROC=100000
+LimitMEMLOCK=infinity
+ExecStart=/usr/local/src/elasticsearch-7.17.24/bin/elasticsearch
+User=elastic
+Group=root
+[Install]
+WantedBy=multi-user.target
