@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="48 小时内定位慢 SQL、缓存异常、跨库不一致与对账问题。只读、可回滚、交付证据链。">
+  <title>数据系统快速诊断｜ShakeFake</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="nav">
+    <a class="brand" href="#top" aria-label="返回顶部"><span></span>DATA TRACE</a>
+    <a class="nav-link" href="#scope">服务范围</a>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">MYSQL · REDIS · CLICKHOUSE · ELASTICSEARCH</p>
+        <h1>别再猜了。<br><em>让数据自己作证。</em></h1>
+        <p class="lead">48 小时内定位慢查询、缓存异常、跨系统数据不一致或对账差异。全程只读，交付证据链、风险排序和下一步修复清单。</p>
+        <div class="actions">
+          <a class="button primary" href="https://github.com/ShakeFake/elasticsearch/issues/new?title=%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E8%AF%8A%E6%96%AD%E5%92%A8%E8%AF%A2&amp;body=%E8%AF%B7%E6%8F%8F%E8%BF%B0%EF%BC%9A1.%20%E5%BC%82%E5%B8%B8%E7%8E%B0%E8%B1%A1%202.%20%E6%B6%89%E5%8F%8A%E7%B3%BB%E7%BB%9F%203.%20%E5%8F%91%E7%94%9F%E6%97%B6%E9%97%B4%204.%20%E5%B7%B2%E6%8E%92%E6%9F%A5%E9%A1%B9%EF%BC%88%E8%AF%B7%E5%8B%BF%E6%8F%90%E4%BA%A4%E5%AF%86%E7%A0%81%E6%88%96%E6%9C%AA%E8%84%B1%E6%95%8F%E6%95%B0%E6%8D%AE%EF%BC%89" target="_blank" rel="noreferrer">发起诊断咨询 ↗</a>
+          <a class="button secondary" href="#deliverables">查看交付物</a>
+        </div>
+        <p class="fine">首批验证价 ¥499 · 60–90 分钟初诊 · 不接触生产写权限</p>
+      </div>
+      <div class="trace-card" aria-label="诊断证据链示意">
+        <div class="trace-head"><span>INCIDENT TRACE</span><span class="live">READ ONLY</span></div>
+        <div class="node ok"><b>01</b><div><strong>ORDER DB</strong><small>status = PAID</small></div><span>12:04:16</span></div>
+        <div class="connector"></div>
+        <div class="node warn"><b>02</b><div><strong>REDIS CACHE</strong><small>status = PENDING</small></div><span>TTL 21h</span></div>
+        <div class="connector"></div>
+        <div class="node bad"><b>03</b><div><strong>REPORTING</strong><small>revenue missing</small></div><span>−¥2,480</span></div>
+        <div class="verdict"><span>ROOT CAUSE</span><strong>过期缓存阻断状态同步</strong><small>证据置信度 94% · 演示数据</small></div>
+      </div>
+    </section>
+
+    <section class="problem-strip" aria-label="适用问题">
+      <p>适合这种时刻</p>
+      <ul><li>接口突然变慢</li><li>报表与业务库对不上</li><li>缓存状态长期不更新</li><li>迁移后出现漏单或重复</li></ul>
+    </section>
+
+    <section class="proof" aria-label="能力验证结果">
+      <div><strong>22 / 22</strong><span>单元与服务测试通过</span></div>
+      <div><strong>4 / 4</strong><span>数据源端到端连通</span></div>
+      <div><strong>READ ONLY</strong><span>SQL 写操作默认拒绝</span></div>
+      <p>2026-10-11 本地隔离测试栈验证：MySQL、Redis、ClickHouse、Elasticsearch 查询成功，数据源启停与记忆服务正常。测试环境使用演示数据，不代表客户生产结果。</p>
+    </section>
+
+    <section class="section" id="deliverables">
+      <div class="section-title"><p>01 / DELIVERABLES</p><h2>你买到的不是“看看”，<br>而是一份能执行的判断。</h2></div>
+      <div class="deliver-grid">
+        <article><span>01</span><h3>问题地图</h3><p>标出异常发生在哪一层、影响哪些链路，以及目前已知与未知的边界。</p></article>
+        <article><span>02</span><h3>证据链</h3><p>关键查询、时间线、指标和样本相互印证，结论可由你的团队复核。</p></article>
+        <article><span>03</span><h3>风险排序</h3><p>按业务影响、发生概率和修复成本排序，不把所有警告都说成事故。</p></article>
+        <article><span>04</span><h3>修复清单</h3><p>给出短期止血与长期治理方案；实际改动由你确认后另行实施。</p></article>
+      </div>
+    </section>
+
+    <section class="section split" id="scope">
+      <div>
+        <p class="eyebrow">SAFE BY DEFAULT</p>
+        <h2>先把边界说清楚。</h2>
+        <p class="body-copy">初诊只接受脱敏样本、只读查询结果或受控屏幕共享。不会索要生产写权限，不部署未知程序，不承诺未经验证的节省金额。</p>
+      </div>
+      <div class="scope-list">
+        <div><span>可诊断</span><p>慢 SQL、索引与连接池、Redis 大 Key/TTL/命中率、ClickHouse 查询与分区、ES 映射与分片、跨系统对账。</p></div>
+        <div><span>不包含</span><p>生产变更、数据删除、安全渗透、7×24 值守，以及没有证据的“保证修好”。</p></div>
+      </div>
+    </section>
+
+    <section class="cta">
+      <p>把最近一次异常描述发来：发生时间、影响、涉及系统、已经排查过什么。</p>
+      <h2>先判断值不值得查，<br>再决定是否付费。</h2>
+      <a class="button light" href="https://github.com/ShakeFake/elasticsearch/issues/new?title=%E6%95%B0%E6%8D%AE%E7%B3%BB%E7%BB%9F%E8%AF%8A%E6%96%AD%E5%92%A8%E8%AF%A2&amp;body=%E8%AF%B7%E6%8F%8F%E8%BF%B0%EF%BC%9A1.%20%E5%BC%82%E5%B8%B8%E7%8E%B0%E8%B1%A1%202.%20%E6%B6%89%E5%8F%8A%E7%B3%BB%E7%BB%9F%203.%20%E5%8F%91%E7%94%9F%E6%97%B6%E9%97%B4%204.%20%E5%B7%B2%E6%8E%92%E6%9F%A5%E9%A1%B9%EF%BC%88%E8%AF%B7%E5%8B%BF%E6%8F%90%E4%BA%A4%E5%AF%86%E7%A0%81%E6%88%96%E6%9C%AA%E8%84%B1%E6%95%8F%E6%95%B0%E6%8D%AE%EF%BC%89" target="_blank" rel="noreferrer">提交问题说明 ↗</a>
+    </section>
+  </main>
+
+  <footer><span>DATA TRACE / 2026</span><span>只读诊断 · 最小权限 · 证据优先</span></footer>
+</body>
+</html>
